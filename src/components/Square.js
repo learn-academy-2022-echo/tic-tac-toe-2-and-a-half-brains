@@ -7,7 +7,7 @@ const Square = (props) => {
   }
 
   return (
-    <div className="square" onClick={handleClick}>{props.index}</div>
+    <div className="square" onClick={handleClick}>{props.value}</div>
   )
 }
 export default Square
