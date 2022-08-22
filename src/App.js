@@ -50,7 +50,7 @@ const App = () => {
     <>
     <div className="background"> 
       <h1>Tic Tac Toe</h1>
-      <div className="boardgame">
+      <div className="boardgame">git 
     {squares.map((value, index) => { 
       return (<Square index={index} handleGamePlay={handleGamePlay} value = {value} calculateWinner={calculateWinner}/> )
     })}
