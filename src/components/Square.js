@@ -7,7 +7,10 @@ const Square = (props) => {
   }
 
   return (
+    <>
     <div className="square" onClick={handleClick}>{props.value}</div>
+    <p>{props.calculateWinner}</p>
+    </>
   )
 }
 export default Square
