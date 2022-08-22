@@ -8,6 +8,11 @@ const App = () => {
   const [counter, setCounter] = useState(0)
 
 
+
+
+
+
+  
   
   const handleGamePlay = (index) => {  
     let newArray = [...squares]
