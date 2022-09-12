@@ -3,14 +3,14 @@ import React from 'react'
 const Square = (props) => {
 
   const handleClick = () => {
-    props.handleGamePlay(props.index)
+    props.gameTicTacToe(props.index)
   }
 
   return (
-    <>
+  
     <div className="square" onClick={handleClick}>{props.value}</div>
-    <p>{props.calculateWinner}</p>
-    </>
+
+    
   )
 }
 export default Square

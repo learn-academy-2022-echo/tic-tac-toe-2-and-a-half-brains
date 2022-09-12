@@ -2,36 +2,63 @@ import React, { useState } from 'react'
 import Square from './components/Square'
 import './App.css'
 
+// const ticTacToe = new URL("../images/tictactoe.jpeg",import.meta.url)
+
+
+
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
   const [player, setPlayer] = useState(1)
   const [counter, setCounter] = useState(0)
-
-
-
-
-
-
   
-  
-  const handleGamePlay = (index) => {  
-    let newArray = [...squares]
-  if (newArray[index] === "X" || newArray[index] === "O") 
-  alert("You already clicked that one") 
-  else if(player === 1) {
-      newArray[index] = "X"
-      setSquares(newArray)
-      setPlayer(2) 
-      } else if (player === 2) {
-        let newArray = [...squares]
-        newArray[index] = "O"
-        setSquares(newArray)
-        setPlayer(1)
-    } 
+  let newSquares = [...squares] 
+
+  const gameTicTacToe = (index) => {
+
+    
+    if (calculateWinner(squares) === "X") {
+      alert("WINNER is Player One!")
+      return
+    } else if (calculateWinner(squares) === "O") {
+      alert("WINNER is Player Two!")
+      return
+    }
+
+    
+    if(counter === squares.length) {
+      alert("GAME OVER!")
+    }
+
+      
+      if (player === 1) {
+        if (newSquares[index] === "X") {
+          alert("You have already marked this square!")
+        } else if (newSquares[index] === "O") {
+          alert(`Player ${player + 1} already marked this square!`)
+        } else {
+          newSquares[index] = "X"
+          setSquares(newSquares)
+          setCounter(counter + 1)
+          setPlayer(2)
+        }
+      }
+     
+      if (player === 2) {
+        if (newSquares[index] === "O") {
+          alert("You have already marked this square")
+        } else if (newSquares[index] === "X") {
+          alert(`Player ${player - 1} already marked this square`)
+        } else {
+          newSquares[index] = "O"
+          setSquares(newSquares)
+          setCounter(counter+1)
+          setPlayer(1)
+        }
+      }
+
   }
-
-
-  const calculateWinner = (newArray) => {
+    
+  function calculateWinner(squares) {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -44,26 +71,41 @@ const App = () => {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (newArray[a] && newArray[a] === newArray[b] && newArray[a] === newArray[c]) {
-        return newArray[a];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        return squares[a];
       }
     }
-    alert("you have won!");
+    return null;
   }
+    
+    const handleReset = () => {
+      setPlayer(1)
+      setCounter(0)
+      setSquares(squares.fill(null))
+    }
+
 
   return (
     <>
-    <div className="background"> 
+    {/* <div className="tictactoe">
+      <img src={ticTacToe}/>
+    </div> */}
       <h1>Tic Tac Toe</h1>
-      <div className="boardgame">git 
-    {squares.map((value, index) => { 
-      return (<Square index={index} handleGamePlay={handleGamePlay} value = {value} calculateWinner={calculateWinner}/> )
-    })}
-      
-    </div>
+        <h2>Player: {player}</h2>
+      <div className="gameboard">
+      {squares.map((value, index) => {
+        return (
+          <Square gameTicTacToe={gameTicTacToe} value={value} index={index}/>
+        )
+      })}
+      </div>
+    <div className="button">
+    <button onClick ={handleReset}>Reset</button> 
     </div>
     </>
+
   )
 }
+
 
 export default App

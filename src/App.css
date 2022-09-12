@@ -1,18 +1,46 @@
-.square {
-  height: 200px;
-  width: 200px;
-  border: 2px solid black;
-  font-size: 11rem;
+
+body {
+  background: rgb(227, 198, 198);
+  color: rgb(48, 160, 192);
+  text-shadow: 1px 1px 2px rgb(157, 88, 70), 0 0 25px rgb(206, 109, 109), 0 0 5px rgba(19, 19, 209, 0.619);
+  background-image: url(/src/images/tictactoe.jpeg);
+} 
+
+.gameboard {
+  display: flex;
+  width: 320px;
+  flex-wrap: wrap;
+  margin: 0 auto;
   text-align: center;
 }
 
-.boardgame{
-  display: flex;
-  width: 650px;
-  flex-wrap: wrap;
-  margin: 0 auto;
+.square {
+  background: white;
+  height: 100px;
+  width: 100px;
+  border: 3px solid gray;
+  text-align: center;
+  font-size: 5rem;
 }
 
-.background{
-  color: limegreen;
+.button {
+  display: flex;
+  justify-content: center;
 }
+
+p {
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 80px;
+  text-align: center ;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 60px;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+ } 
