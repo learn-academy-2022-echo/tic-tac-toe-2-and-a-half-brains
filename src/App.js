@@ -16,11 +16,11 @@ const App = () => {
   const gameTicTacToe = (index) => {
 
     
-    if (calculateWinner(squares) === "X") {
-      alert("WINNER is Player One!")
+    if (calculateWinner(squares) === "🍭") {
+      alert("🍭 SWEET, Player 1 is the winner! 🍭")
       return
-    } else if (calculateWinner(squares) === "O") {
-      alert("WINNER is Player Two!")
+    } else if (calculateWinner(squares) === "🍩") {
+      alert("🍩 You're the jam! Player 2 has won! 🍩")
       return
     }
 
@@ -31,12 +31,12 @@ const App = () => {
 
       
       if (player === 1) {
-        if (newSquares[index] === "X") {
+        if (newSquares[index] === "🍭") {
           alert("You have already marked this square!")
-        } else if (newSquares[index] === "O") {
+        } else if (newSquares[index] === "🍩") {
           alert(`Player ${player + 1} already marked this square!`)
         } else {
-          newSquares[index] = "X"
+          newSquares[index] = "🍭"
           setSquares(newSquares)
           setCounter(counter + 1)
           setPlayer(2)
@@ -44,12 +44,12 @@ const App = () => {
       }
      
       if (player === 2) {
-        if (newSquares[index] === "O") {
+        if (newSquares[index] === "🍩") {
           alert("You have already marked this square")
         } else if (newSquares[index] === "X") {
           alert(`Player ${player - 1} already marked this square`)
         } else {
-          newSquares[index] = "O"
+          newSquares[index] = "🍩"
           setSquares(newSquares)
           setCounter(counter+1)
           setPlayer(1)
